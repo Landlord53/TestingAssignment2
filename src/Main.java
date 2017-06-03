@@ -20,15 +20,15 @@ public class Main {
 
     @Test
     public void mainTest() {
-        System.setProperty("webdriver.chrome.driver", "/home/nikolai/Programs/chromedriver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "res/chromedriver");
         driver = new ChromeDriver();
         // https://seleniumhq.github.io/selenium/docs/api/java/org/openqa/selenium/support/ui/WebDriverWait.html
         wait = new WebDriverWait(driver, 30);
-        driver.get("http://www.google.com/");
+        driver.get("http://lang-8.com/");
 
         boolean result;
         try {
-            result = firstPageContainsQAANet();
+            result = FillSimpleFormAndSend();
         } catch(Exception e) {
             e.printStackTrace();
             result = false;
@@ -42,22 +42,19 @@ public class Main {
         }
     }
 
-    private static boolean firstPageContainsQAANet() {
-        //type search query
-        driver.findElement(By.name("q")).sendKeys("qa automation\n");
+    private static void login() {
+        driver.findElement(By.id("login")).click();
 
-        // click search
-        driver.findElement(By.name("btnG")).click();
+        driver.findElement(By.name("username")).sendKeys("nikolay.chalykh@gmail.com");
+        driver.findElement(By.name("password")).sendKeys("42908326");
 
-        // Wait for search to complete
-        wait.until(new ExpectedCondition<Boolean>() {
-            public Boolean apply(WebDriver webDriver) {
-                System.out.println("Searching ...");
-                return webDriver.findElement(By.id("resultStats")) != null;
-            }
-        });
-
-        // Look for QAAutomation.net in the results
-        return driver.findElement(By.tagName("body")).getText().contains("qaautomation.net");
+        driver.findElement(By.name("commit")).click();
     }
+
+    private static boolean FillSimpleFormAndSend() {
+        login();
+        return driver.findElement(By.tagName("body")).getText().contains("Post an entry now!");
+    }
+
+
 }
