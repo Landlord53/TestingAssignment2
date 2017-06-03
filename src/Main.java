@@ -53,7 +53,8 @@ public class Main {
 
     private static boolean FillSimpleFormAndSend() {
         login();
-        return driver.findElement(By.tagName("body")).getText().contains("Post an entry now!");
+        boolean res = driver.findElement(By.tagName("body")).getText().contains("Post an entry now!");
+        return res;
     }
 
 
