@@ -1,0 +1,3 @@
+ChromeDriver = res/chromedriver
+
+URL=http://lang-8.com/
