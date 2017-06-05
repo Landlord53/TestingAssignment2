@@ -1,3 +1,5 @@
+package basicTests;
+
 import com.google.common.base.Function;
 import org.junit.After;
 import org.junit.Assert;

@@ -1,3 +1,5 @@
+package basicTests;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -27,9 +29,10 @@ public class LogoutTest {
     public void logoutTest() {
         boolean result;
         LoginTest.login(LoginTest.login, LoginTest.password, driver);
+        logout();
 
         try {
-            result = logout();
+            result = driver.findElement(By.id("login")) != null;
         } catch(Exception e) {
             e.printStackTrace();
             result = false;
@@ -43,11 +46,9 @@ public class LogoutTest {
         }
     }
 
-    private static boolean logout() {
+    private static void logout() {
         Actions builder = new Actions(driver);
         builder.moveToElement(driver.findElement(By.id("user_name_and_image"))).build().perform();
         driver.findElement(By.xpath("//a[@href='/sessions/delete']")).click();
-
-        return driver.findElement(By.id("login")) != null;
     }
 }

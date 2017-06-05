@@ -1,4 +1,5 @@
-import org.junit.After;
+package basicTests;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -15,7 +16,7 @@ public class LoginTest {
     static Wait<WebDriver> wait;
 
     public static final String login = "Nikolay.Chalykh@gmail.com";
-    public static final String password = "42908326";
+    public static final String password = "12345678";
 
     @Before
     public void init() {
