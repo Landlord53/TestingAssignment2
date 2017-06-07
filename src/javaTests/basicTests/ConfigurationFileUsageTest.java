@@ -7,7 +7,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 /**
  * Created by nikolai on 6/4/17.
  */
-public class GoogleTestWithConfigFile {
+public class ConfigurationFileUsageTest {
     @Test
     public void chromeTest() throws Exception
     {
