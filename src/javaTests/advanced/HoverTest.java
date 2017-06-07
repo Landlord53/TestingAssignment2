@@ -25,7 +25,7 @@ public class HoverTest {
         driver = new ChromeDriver();
         driver.get("https://lang-8.com/login?from=header");
         BasicActions.login(BasicActions.login, BasicActions.password, driver);
-         elem = driver.findElement(By.xpath("//a[@href='/sessions/delete']"));
+        elem = driver.findElement(By.xpath("//a[@href='/sessions/delete']"));
     }
 
     @Test
