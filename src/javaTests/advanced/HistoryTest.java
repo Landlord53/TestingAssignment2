@@ -31,6 +31,7 @@ public class HistoryTest {
         urlList.add("http://blog.lang-8.com/post/19824923520/i-cannot-log-in");
         driver = new ChromeDriver();
         driver.get("http://lang-8.com/");
+
         actionBot = new ActionBot(driver);
         actionBot.click(By.xpath("//a[@href='https://lang-8.com/login?from=header']"));
         actionBot.click(By.xpath("//a[@href='/help/login']"));
@@ -41,9 +42,11 @@ public class HistoryTest {
         Assert.assertEquals(urlList.getLast(), driver.getCurrentUrl());
         urlList.removeLast();
         driver.navigate().back();
+
         Assert.assertEquals(urlList.getLast(), driver.getCurrentUrl());
         urlList.removeLast();
         driver.navigate().back();
+
         Assert.assertEquals(urlList.getLast(), driver.getCurrentUrl());
         urlList.removeLast();
     }
